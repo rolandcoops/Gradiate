@@ -99,14 +99,11 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 <div class="alert">
 
 
-<!-- <span class="failingAlert bar">Failed 1 specs</span> -->
-<span class="failingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>1 specs, 1 failed, 0 pending</span>
-<span class="resultsMenu bar">
-<a class="summaryMenuItem" onclick="showSummary();" href="#">Spec List<a>|<a 
-   class="detailsMenuItem" onclick="showFailures();" href="#">Failures</a>
-</span>
 
+  
+  <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
+  <a href="#" onclick="unfold();">Unfold</a></span>1 specs, 0 failed, 0 pending</span>
+  
 
 
 </div>
@@ -117,11 +114,11 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
   
   
   
-    <div class="suite failed">
-      <span class="description">Gradify.js Gradify.get()</span>
+    <div class="suite passed">
+      <span class="description">Gradiate.js Gradiate.get()</span>
     
-      <div class="specSummary failed">
-      <span class="description">STUB</span>
+      <div class="specSummary passed">
+      <span class="description">Should interpolate input array using specified quantity</span>
       </div>
     
     </div>
@@ -130,16 +127,6 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </div>
 
 <div id="details">
-  
-  
-  <div class="specDetail failed">
-    <span class="description">Gradify.js Gradify.get() STUB</span>
-    <div class="stackTrace">
-      <div class="resultMessage">Expected Function to equal 'STUB'.
-    at Object.&lt;anonymous&gt; (http://localhost:9876/base/_test/scripts/Gradify.test.js?e6338bd59d6d091ca83a525f64a403a57d59cb50:14:16)</div>
-    </div>
-  </div>
-  
   
 </div>
 
@@ -152,7 +139,7 @@ document.body.onkeypress = function (e) {
   switch (e.keyCode) {
     case 102: toggleFold(); break;
     case 49: showSummary(); break;
-    case 50: showFailures(); break;
+    
   }
 };
 

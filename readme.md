@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/rolandcoops/Gradiate.svg?branch=master)](https://travis-ci.org/rolandcoops/Gradiate)
-
 # About
+
+[![Build Status](https://travis-ci.org/rolandcoops/Gradiate.svg?branch=master)](https://travis-ci.org/rolandcoops/Gradiate)
 
 Want to get a palette array of interpolated color values of any length, based on an input array? You can!
 
@@ -10,12 +10,19 @@ Want to get a palette array of interpolated color values of any length, based on
 
 [Simple demo](https://cdn.rawgit.com/rolandcoops/Gradiate/master/demo/demo.html "via rawgit.com")
 
-# Usage
+
+
+# Installation
 
 1. Include */lib/Gradiate.js* in your build
 
 2. 'Gradiate.get( count, array )' is revealed in global.
 
+**Note:** If invalid input is supplied as the array argument, a fallback color of [0,0,0] will be used.
+
+
+
+# Code Example
 
 ```javascript
 // Gradiate.get() returns an object with array properties .hex .rgb and .rgbCsv
@@ -27,9 +34,6 @@ let paletteObj = Gradiate.get( 8, ['#46b1d9', '#64cf54', '#ffd544'] );
 // second example (array of [r,g,b] to comma-separated string 'r,g,b')
 let paletteCsv = Gradiate.get( 11, [ [70, 177, 217], [100, 207, 84], [255, 213, 68] ] ).rgbCsv;
 ```
-
-
-**Note:** If invalid input is supplied as the array argument, a fallback color of [0,0,0] will be used.
 
 
 

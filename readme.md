@@ -1,3 +1,7 @@
+# Demo
+
+[Simple demo](https://cdn.rawgit.com/rolandcoops/Gradiate/master/demo/demo.html "via rawgit.com")
+
 # Usage
 
 1. Include */lib/Gradiate.js* in your build

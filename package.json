@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/rolandcoops/Gradiate/issues"
   },
-  "license": "Apache License 2.0",
+  "license": "MIT License",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-es2015-block-scoping": "^6.18.0",

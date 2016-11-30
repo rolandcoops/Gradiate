@@ -20,7 +20,7 @@ module.exports = function (config) {
             './src/Gradiate.js',
 
             // load all test files
-            './_test/**/*.js',
+            './test/**/*.js',
         ],
 
         // list of files to exclude
@@ -36,7 +36,7 @@ module.exports = function (config) {
 
         // htmlReporter plugin configuration
         htmlReporter: {
-            outputDir: '_test/', // where to put the reports
+            outputDir: 'test/', // where to put the reports
             templatePath: null, // set if you moved jasmine_template.html
             focusOnFailures: false, // reports show failures on start
             namedFiles: true, // name files instead of creating sub-directories

@@ -1,23 +1,27 @@
-// TODO: DEV:
-// 1 USE BABEL (because of the let/const)
-// 2 USE MINIFY / UGLIFY
+/**
+ * Gradiate Module
+ * by Roland Coops
+ *
+ * Quick Usage example (try in console):
+ * Gradiate.get(5, ['#46b1d9', '#64cf54', '#ffd544']).hex;
+ */
+
 
 var Gradiate = ( function GradiateModule( publicAPI ) {
 
 	"use strict";
 
-	let fallbackRgb = [0, 0, 0];
+	const fallbackRgb = [0, 0, 0];
 
-	let delimRgbPatt = /(\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})/;
-	let hex3Patt = /^#?([0-9a-f]{3})$/i;
-	let hex6Patt = /^#?([0-9a-f]{6})$/i;
+	const delimRgbPatt = /(\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})/;
+	const hex3Patt = /^#?([0-9a-f]{3})$/i;
+	const hex6Patt = /^#?([0-9a-f]{6})$/i;
 
 
 	// Local scope Number.isInteger() polyfill (from MDN)
 	function isInteger( v ) {
 		return ( typeof v === 'number' && isFinite( v ) && Math.floor( v ) === v );
-	};
-
+	}
 
 	// Limit RGB channel value to 0 >= v <= 255
 	function limitChannel( channel )
@@ -32,7 +36,7 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 
 	function hexToRgb( hexCode )
 	{
-		let formatFn = function( value ) {
+		const formatFn = function( value ) {
 			value = value.replace( /[^0-9a-f]/gi, '' );
 
 			if ( hex3Patt.test( value ) )
@@ -43,9 +47,9 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 			return value;
 		};
 
-		let parseFn = function( value ) {
+		const parseFn = function( value ) {
 			return parseInt( value, 16 );
-		};
+		}
 
 		// format & validate hexCode
 		hexCode = formatFn( hexCode );
@@ -61,8 +65,8 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 	// convert [r, g, b] array to hexcode string
 	function rgbToHex( arr )
 	{
-		let parseFn = function( value ) {
-			let str = value.toString( 16 );
+		const parseFn = function( value ) {
+			const str = value.toString( 16 );
 			return ( str.length === 1 )
 				? '0' + str
 				: str;
@@ -82,7 +86,7 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 	// parse comma separated RGB string to [r, g, b] array
 	function relimitRgb( str )
 	{
-		let splitStr = delimRgbPatt.exec( str );
+		const splitStr = delimRgbPatt.exec( str );
 		return splitStr.slice( 1 );
 	}
 

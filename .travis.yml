@@ -2,5 +2,5 @@ language: node_js
 node_js:
     - 5.10.1
     - node
-script: test
+script: npm test
 install: npm install

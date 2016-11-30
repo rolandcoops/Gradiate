@@ -102,7 +102,7 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
   
   <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>1 specs, 0 failed, 0 pending</span>
+  <a href="#" onclick="unfold();">Unfold</a></span>7 specs, 0 failed, 0 pending</span>
   
 
 
@@ -115,10 +115,39 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
   
   
     <div class="suite passed">
-      <span class="description">Gradiate.js Gradiate.get()</span>
+      <span class="description">Gradiate.js Gradiate.get() general</span>
     
       <div class="specSummary passed">
-      <span class="description">Should interpolate input array using specified quantity</span>
+      <span class="description">Should return interpolated array using specified quantity</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Should accept input arrays of [r,g,b], &quot;r,g,b&quot;, &quot;#HEXHEX&quot;, &quot;HEXHEX&quot;</span>
+      </div>
+    
+    </div>
+  
+    <div class="suite passed">
+      <span class="description">Gradiate.js Gradiate.get() fallbacks &amp; robustness</span>
+    
+      <div class="specSummary passed">
+      <span class="description">Should return fallback palette when array argument is not defined, not an array or is not populated</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Should limit output colors to RGB channel values 0-255</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Should return fallback palette when an invalid hex is encountered</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Should return fallback palette when an invalid comma-separated &quot;r,g,b&quot; is encountered</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Should return fallback palette when array argument subarrays are invalid</span>
       </div>
     
     </div>

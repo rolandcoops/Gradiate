@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rolandcoops/Gradiate.svg?branch=master)](https://travis-ci.org/rolandcoops/Gradiate)
+
 # About
 
 Want to get a palette array of interpolated color values of any length, based on an input array? You can!

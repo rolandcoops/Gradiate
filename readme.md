@@ -1,4 +1,10 @@
-# Demo
+# About
+
+Want to get a palette array of interpolated color values of any length, based on an input array? You can!
+
+  - Useful for e.g. quantitative data visualizations with n categories.
+  - Accepts [r,g,b] || 'r, g, b' || 'r,g,b' || '#hexhex' || '#hex'
+  - Returns { [r,g,b], 'r, g, b', '#hexhex' }
 
 [Simple demo](https://cdn.rawgit.com/rolandcoops/Gradiate/master/demo/demo.html "via rawgit.com")
 
@@ -27,7 +33,8 @@ let paletteCsv = Gradiate.get( 11, [ [70, 177, 217], [100, 207, 84], [255, 213, 
 
 # Browser Support
 
-IE9+ as post-babel build (lib folder) uses ES5 features. Pre-babel build (src folder) will work in IE11+.
+IE9+ as post-babel build (lib folder) uses ES5 features.  
+Pre-babel build (src folder) will work in IE11+.
 
 **Note**: If running in enterprise mode, ES5 features such as Array.isArray() might have to be polyfilled!
 
@@ -35,4 +42,4 @@ IE9+ as post-babel build (lib folder) uses ES5 features. Pre-babel build (src fo
 
 # Dependencies
 
-None for usage, check package.json for build & test dev-dependencies
+None for usage, check package.json for build & test dev-dependencies (or simply run 'npm install')

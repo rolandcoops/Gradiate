@@ -17,7 +17,7 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             // load files to be tested
-            './src/Gradiate.js',
+            './lib/Gradiate.js',
 
             // load all test files
             './test/**/*.js',
@@ -28,15 +28,21 @@ module.exports = function (config) {
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {},
+        preprocessors: {
+            './lib/Gradiate.js': 'coverage'
+        },
 
         // test results reporter to use, possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['mocha', 'html'],
+        reporters: ['mocha', 'html', 'coverage'],
+
+        coverageReporter: {
+            dir: 'test/karma.coverage/'
+        },
 
         // htmlReporter plugin configuration
         htmlReporter: {
-            outputDir: 'test/', // where to put the reports
+            outputDir: 'test/karma.results/', // where to put the reports
             templatePath: null, // set if you moved jasmine_template.html
             focusOnFailures: false, // reports show failures on start
             namedFiles: true, // name files instead of creating sub-directories

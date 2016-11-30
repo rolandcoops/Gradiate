@@ -2,11 +2,7 @@
 
 module.exports = function (config) {
 
-    if(process.env.TRAVIS) {
-        configuration.browsers = ['Chrome_travis_ci'];
-    }
-
-    config.set({
+    var configuration = {
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '..',
@@ -81,5 +77,11 @@ module.exports = function (config) {
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: true,
         singleRun: true,
-    });
+    };
+
+    if(process.env.TRAVIS) {
+        configuration.browsers = ['Chrome_travis_ci'];
+    }
+
+    config.set( configuration );
 };

@@ -35,8 +35,8 @@ let paletteCsv = Gradiate.get( 11, [ [70, 177, 217], [100, 207, 84], [255, 213, 
 
 # Browser Support
 
-IE9+ as post-babel build (lib folder) uses ES5 features.  
-Pre-babel build (src folder) will work in IE11+.
+Compiled production build build (lib folder) will work in IE9+ (compiled with babeljs).  
+Pre-compiled development build (src folder) will work as-is in IE11+.
 
 **Note**: If running in enterprise mode, ES5 features such as Array.isArray() might have to be polyfilled!
 

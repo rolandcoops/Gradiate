@@ -2,7 +2,7 @@
 
 1. Include */lib/Gradiate.js* in your build
 
-2. Gradiate.get( count, array ) is revealed in global.
+2. 'Gradiate.get( count, array )'' is revealed in global.
 
 
 ```javascript
@@ -25,7 +25,7 @@ let paletteCsv = Gradiate.get( 11, [ [70, 177, 217], [100, 207, 84], [255, 213, 
 
 IE9+ as post-babel build (lib folder) uses ES5 features. Pre-babel build (src folder) will work in IE11+.
 
-Note: If running in enterprise mode, ES5 features such as Array.isArray() might have to be polyfilled!
+**Note**: If running in enterprise mode, ES5 features such as Array.isArray() might have to be polyfilled!
 
 
 

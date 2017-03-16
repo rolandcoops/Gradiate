@@ -6,13 +6,9 @@
  * Gradiate.get(5, ['#46b1d9', '#64cf54', '#ffd544']).hex;
  */
 
-
-( function GradiateModule() {
+( function GradiateModule(context) {
 
 	"use strict";
-
-	// global/window object
-	const root = this;
 
 	// API reference to return
 	const publicAPI = {};
@@ -149,11 +145,11 @@
 	// export as module or as global when not in module-enabled environment
 	if (typeof module !== 'undefined' && module.exports)
 	{
-            module.exports = publicAPI;
+    	module.exports = publicAPI;
     }
 	else
 	{
-            root.Gradiate = publicAPI;
+    	context.Gradiate = publicAPI;
     }
 
-}());
+}(window || global));

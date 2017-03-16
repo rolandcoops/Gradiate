@@ -5,13 +5,11 @@ body {
 h1 {
 	font-family: 'Open Sans', Arial, serif;
 	font-weight: 300;
-	font-size: 48px;
+	font-size: 50px;
 	color: #393331;
 }
-div {
-	 display: flex;
-}
 div.palette-fragment {
+	display: table-cell;
 	height: 50px;
-	width: 100%;
+	width: 100vw;
 }

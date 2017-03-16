@@ -19,75 +19,51 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 
 
 	// Local scope Number.isInteger() polyfill (from MDN)
-	function isInteger( v ) {
-		return ( typeof v === 'number' && isFinite( v ) && Math.floor( v ) === v );
-	}
+	const isInteger = v => ( typeof v === 'number' && isFinite( v ) && Math.floor( v ) === v );
+
+
+	// limit an integer between two values
+	const limitInteger = (val, min, max) => Math.min( Math.max( val, min ), max );
+
 
 	// Limit RGB channel value to 0 >= v <= 255
-	function limitChannel( channel )
-	{
+	const limitChannel = ( channel ) => {
 		// If channel can be coerced to an int, return range-limited number, else, 'silent fail' to 0
 		const channelInt = parseInt( channel, 10 );
-		return ( isInteger( channelInt ) )
-			? Math.min( Math.max( channelInt, 0 ), 255 )
-			: 0;
-	}
+		return isInteger( channelInt ) ? limitInteger( channelInt, 0, 255 ) : 0;
+	};
+
+
+	// parse comma separated RGB string to [r, g, b] array
+	const relimitRgb = str => delimRgbPatt.exec( str ).slice( 1 );
 
 
 	function hexToRgb( hexCode )
 	{
-		const formatFn = function( value ) {
-			value = value.replace( /[^0-9a-f]/gi, '' );
-
-			if ( hex3Patt.test( value ) )
-			{
-				value = '' + value[0] + value[0] + value[1] + value[1] + value[2] + value[2];
-			}
-
-			return value;
+		const formatFn = ( value ) => {
+			let v = value.replace( /[^0-9a-f]/gi, '' );
+			return hex3Patt.test( v ) ? ''+v[0]+v[0]+v[1]+v[1]+v[2]+v[2] : v;
 		};
 
-		const parseFn = function( value ) {
-			return parseInt( value, 16 );
-		}
+		// parse 10-base to 16-base (hex)
+		const parseFn = value => parseInt( value, 16 );
 
 		// format & validate hexCode
-		hexCode = formatFn( hexCode );
+		const formattedHex = formatFn( hexCode );
 
-		return [
-			parseFn( hexCode.substr( 0, 2 ) ),
-			parseFn( hexCode.substr( 2, 2 ) ),
-			parseFn( hexCode.substr( 4, 2 ) )
-		];
+		return [0,2,4].map( pos => parseFn( formattedHex.substr( pos, 2 ) ) );
 	}
 
 
 	// convert [r, g, b] array to hexcode string
 	function rgbToHex( arr )
 	{
-		const parseFn = function( value ) {
+		const parseFn = value => {
 			const str = value.toString( 16 );
-			return ( str.length === 1 )
-				? '0' + str
-				: str;
+			return ( str.length === 1 ) ? '0'+str : str;
 		};
 
-		return "#" + parseFn( arr[0] ) + parseFn( arr[1] ) + parseFn( arr[2] );
-	}
-
-
-	// joining function for use by Array.map()
-	function delimitRgb( arr )
-	{
-		return arr.join();
-	}
-
-
-	// parse comma separated RGB string to [r, g, b] array
-	function relimitRgb( str )
-	{
-		const splitStr = delimRgbPatt.exec( str );
-		return splitStr.slice( 1 );
+		return `#${ arr.map( parseFn ).join( '' ) }`;
 	}
 
 
@@ -97,9 +73,7 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 
 		// calculate step translation between input & output arrays
 	    let step = ( arr.length - 1 ) / ( count - 1 );
-	        step = ( isFinite( step ) )
-				? step
-				: ( arr.length - 1 ); // check to catch divide by 0
+	        step = ( isFinite( step ) ) ? step : ( arr.length - 1 ); // check to catch divide by 0
 
 		for( let i=0; i<count; i++ )
 	    {
@@ -115,11 +89,9 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 	        let position = interpolate - pre;
 
 			// push new r,g,b arr to output palette arr
-	        palette.push([
-				parseInt( arr[pre][0] + ( arr[post][0] - arr[pre][0] ) * position, 10 ),
-				parseInt( arr[pre][1] + ( arr[post][1] - arr[pre][1] ) * position, 10 ),
-				parseInt( arr[pre][2] + ( arr[post][2] - arr[pre][2] ) * position, 10 )
-	        ]);
+	        palette.push( [0,1,2].map( channel => {
+				return parseInt( arr[pre][channel] + ( arr[post][channel] - arr[pre][channel] ) * position, 10 );
+			}));
 	    }
 
 		return palette;
@@ -159,13 +131,11 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 		}
 
 		// if invalid, return palette of fallback rgb values
-		let palette = ( valid )
-			? getPalette( count, parseInput )
-			: getPalette( count, [fallbackRgb] );
+		let palette = ( valid ) ? getPalette( count, parseInput ) : getPalette( count, [fallbackRgb] );
 
 		return {
 			rgb: 		palette,
-			rgbCsv: 	palette.map( delimitRgb ),
+			rgbCsv: 	palette.map( arr => arr.join() ),
 			hex: 		palette.map( rgbToHex )
 		};
 	};

@@ -7,7 +7,7 @@
  */
 
 
-var Gradiate = ( function GradiateModule( publicAPI ) {
+exports.Gradiate = ( function GradiateModule( publicAPI ) {
 
 	"use strict";
 
@@ -143,4 +143,4 @@ var Gradiate = ( function GradiateModule( publicAPI ) {
 
 	return publicAPI;
 
-}( Gradiate || {} ) );
+}( {} ) );

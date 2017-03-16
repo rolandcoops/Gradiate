@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/rolandcoops/Gradiate.svg?branch=master)](https://travis-ci.org/rolandcoops/Gradiate)
 
-Want to get a palette array of interpolated color values of any length, based on an input array? You can!
+**Standalone, lightweight and simple gradient generation tool**
+
+Want to get a palette array of interpolated color values of any length, based on an input array? Covered!
 
   - Useful for e.g. quantitative data visualizations with n categories.
   - Accepts [r,g,b] || 'r, g, b' || 'r,g,b' || '#hexhex' || '#hex'
@@ -22,7 +24,7 @@ Want to get a palette array of interpolated color values of any length, based on
 
 
 
-# Code Example
+# Example Usage
 
 ```javascript
 // Gradiate.get() returns an object with array properties .hex .rgb and .rgbCsv

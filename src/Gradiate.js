@@ -7,9 +7,15 @@
  */
 
 
-module.exports = ( function GradiateModule( publicAPI ) {
+( function GradiateModule() {
 
 	"use strict";
+
+	// global/window object
+	const root = this;
+
+	// API reference to return
+	const publicAPI = {};
 
 	const fallbackRgb = [0, 0, 0];
 
@@ -140,7 +146,14 @@ module.exports = ( function GradiateModule( publicAPI ) {
 		};
 	};
 
+	// export as module or as global when not in module-enabled environment
+	if (typeof module !== 'undefined' && module.exports)
+	{
+            module.exports = publicAPI;
+    }
+	else
+	{
+            root.Gradiate = publicAPI;
+    }
 
-	return publicAPI;
-
-}( {} ) );
+}());

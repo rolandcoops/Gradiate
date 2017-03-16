@@ -7,7 +7,7 @@
  */
 
 
-exports.Gradiate = ( function GradiateModule( publicAPI ) {
+exports = ( function GradiateModule( publicAPI ) {
 
 	"use strict";
 

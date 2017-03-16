@@ -1,19 +1,19 @@
 {
   "name": "gradiate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "rolandcoops",
   "description": "JS utility for retrieving step gradients from arrays of colour values",
   "keywords": [
-      "gradient",
-      "rgb",
-      "color"
+    "gradient",
+    "rgb",
+    "color"
   ],
   "repository": {
-      "type": "git",
-      "url": "https://github.com/rolandcoops/Gradiate"
+    "type": "git",
+    "url": "https://github.com/rolandcoops/Gradiate"
   },
   "bugs": {
-      "url": "https://github.com/rolandcoops/Gradiate/issues"
+    "url": "https://github.com/rolandcoops/Gradiate/issues"
   },
   "main": "lib/Gradiate.js",
   "scripts": {

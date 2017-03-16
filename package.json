@@ -1,6 +1,6 @@
 {
   "name": "gradiate",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "rolandcoops",
   "description": "JS utility for retrieving step gradients from arrays of colour values",
   "keywords": [

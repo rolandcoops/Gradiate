@@ -2,7 +2,7 @@
   "name": "gradiate",
   "version": "0.1.7",
   "author": "rolandcoops",
-  "description": "JS utility for retrieving step gradients from arrays of colour values",
+  "description": "JS tool for retrieving step gradients from arrays of colour values",
   "keywords": [
     "gradient",
     "rgb",
@@ -18,7 +18,6 @@
   "main": "lib/Gradiate.js",
   "scripts": {
     "lint": "jshint ./src/Gradiate.js",
-    "pretest": "echo 'Initializing test...'",
     "test": "karma start test/karma.conf.js -s",
     "build": "babel src -d lib"
   },
